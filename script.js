@@ -6,6 +6,10 @@
 // Your assignment is to do the following:
 // 1. Write a function called validateForm(e) where e is an 'event' variable (this is default
 //    behavior for forms - feel free to call it 'event' as well)
+function validateForm(e){
+    e.preventDefault();
+
+
 // 2. Inside of validateForm(e), get the information of the form fields by either using querySelectors
 //    or by traversing the event object and do the following checks:
 //      2a. If the #name input element is empty, send an alert telling the user to enter their name
@@ -16,7 +20,37 @@
 //          and return false
 //      2d. If the #password input element is less than 8 characters, send an alert telling the user
 //          their password must be at least 8 characters and then return false
+
+// Get input for name
+const name =document.querySelector("#name");
+if(!name.value.trim()){
+    alert("Please Enter name:");
+    return false;
+}
+
+// Get input for email
+
+const email = document.querySelector("#email");
+if(!email.value.includes("@")){
+    alert("Please enter valid email address");
+    return false;
+}
+//Get passwprd input 
+
+const password= document.querySelector("#password");
+
+if (!password.value.trim()) {
+    alert("Please insert a password");
+    return false;
+}
+if(!password.value.length<8){(
+    "Password should be least 8 characters");
+    return false;
+}
 // 3. If all of the checks pass, return true
+
+return true;
+}
 // 4. Lastly, add an event listener onto the form (id="#userForm") that waits for
 //    a 'submit' event and runs the validateForm callback function when that event happens
 
