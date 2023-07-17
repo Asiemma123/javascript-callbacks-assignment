@@ -31,7 +31,7 @@ if(!name.value.trim()){
 // Get input for email
 
 const email = document.querySelector("#email");
-if(!email.value.includes("@")){
+if(!email.value.includes("@")) {
     alert("Please enter valid email address");
     return false;
 }
@@ -43,7 +43,7 @@ if (!password.value.trim()) {
     alert("Please insert a password");
     return false;
 }
-if(!password.value.length<8){(
+if(password.value.length<8){(
     "Password should be least 8 characters");
     return false;
 }
@@ -53,6 +53,9 @@ return true;
 }
 // 4. Lastly, add an event listener onto the form (id="#userForm") that waits for
 //    a 'submit' event and runs the validateForm callback function when that event happens
+const userForm = document.querySelector("#userForm");
+
+userForm.addEventListener("submit", validateForm);
 
 //Hint: When dealing with a form submission that takes an event variable as a parameter, use e.preventDefault()
 //      (or event.preventDefault() depending on the name of the variable) to prevent the page
